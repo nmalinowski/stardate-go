@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
 	"time"
 )
 
@@ -47,8 +48,9 @@ func ConvertToStardate(date time.Time) float64 {
 
 func main() {
 	// Create a time.Time value for a specific date
-	date := time.Date(2023, time.December, 14, 0, 0, 0, 0, time.UTC)
+	date := time.Now()
 
 	// Call the ConvertToStardate function and print the result
-	fmt.Println(ConvertToStardate(date))
+	var print []any = []any{"Stardate:", ConvertToStardate(date)}
+	fmt.Fprintln(os.Stdout, print...)
 }
